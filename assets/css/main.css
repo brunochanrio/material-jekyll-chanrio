@@ -932,7 +932,7 @@ html .md-footer-meta.md-typeset a:focus, html .md-footer-meta.md-typeset a:hover
 .open-parent:after {
     content: "\E316" !important}
 
-html .md-nav__link[for=__toc], html .md-nav__link[for=__toc]+.md-nav__link:after, html .md-nav__link[for=__toc]~.md-nav {
+html .md-nav__link[type=toc], html .md-nav__link[type=toc]+.md-nav__link:after, html .md-nav__link[type=toc]~.md-nav {
     display: flex;
 }
 .md-nav__link[data-md-state=blur] {
@@ -2238,16 +2238,6 @@ html .md-typeset .superfences-tabs>label:hover {
 .ios body[data-md-state=lock] .md-container {
     display: none;
 }
-html .md-nav__link[for=__toc] {
-    display: flex;
-    padding-right: 4.8rem;
-}
-html .md-nav__link[for=__toc]:after {
-    color: inherit;
-    content: "\E8DE"}
-html .md-nav__link[for=__toc]+.md-nav__link {
-    display: flex;
-}
 html .md-nav__link[type=toc] {
     display: flex;
     padding-right: 4.8rem;
@@ -2255,9 +2245,20 @@ html .md-nav__link[type=toc] {
 html .md-nav__link[type=toc]:after {
     color: inherit;
     content: "\E8DE"}
-html .md-nav__link[for=__toc]~.md-nav {
+html .md-nav__link[type=toc]+.md-nav__link {
     display: flex;
+    padding-right: 4.8rem;
 }
+html .md-nav__link[type=toc]+.md-nav__link:after {
+    color: inherit;
+    content: "\E8DE"}
+html .md-nav__link[type=toc]~.md-nav {
+    display: flex;
+    padding-right: 4.8rem;
+}
+html .md-nav__link[type=toc]+.md-nav:after {
+    color: inherit;
+    content: "\E8DE"}
 html [dir=rtl] .md-nav__link {
     padding-right: 1.6rem;
     padding-left: 4.8rem;
