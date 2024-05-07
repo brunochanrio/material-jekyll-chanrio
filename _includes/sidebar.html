@@ -19,7 +19,7 @@
             
             {% if section.children %}
             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc-{{ section.title | slugify }}" type="checkbox"> 
-                <label class="md-nav__link md-nav__link--active" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
+                <label class="md-nav__link md-nav__link--active" for="__toc">{{ section.title }}</label>
                   
 
             <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
