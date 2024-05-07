@@ -16,15 +16,9 @@
                
           
           </li>
-
-<!-- This navigation is completely for mobile -->
-          {% for section in site.data.toc %}<li class="md-nav__item mobile-nav">
-            <a class="md-nav__link" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}">{{ section.title }}</a>
-          </li>{% endfor %}
           
-          <!-- This navigation is completely for non mobile -->
          {% for section in site.data.toc %}
-         <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+         <li class="md-nav__item md-nav__item--nested">
              <a class="md-nav__link pancakes-parent" {% if section.children %}href="#pancakes-{{ section.title | slugify }}"{% else %}href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}"{% endif %}
                 id="pancakes-{{ section.title | slugify }}" 
                 title="{{ section.title }}">{{ section.title }}</a>
