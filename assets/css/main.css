@@ -935,6 +935,12 @@ html .md-footer-meta.md-typeset a:focus, html .md-footer-meta.md-typeset a:hover
 html .md-nav__link[for=__toc], html .md-nav__link[for=__toc]+.md-nav__link:after, html .md-nav__link[for=__toc]~.md-nav {
     display: none;
 }
+html .md-nav__link[type=toc], html .md-nav__link[type=toc]+.md-nav__link:after, html .md-nav__link[type=toc]~.md-nav {
+    display: none;
+}
+html .md-nav__link[type=link], html .md-nav__link[type=link]+.md-nav__link:after, html .md-nav__link[type=link]~.md-nav {
+    display: none;
+}
 .md-nav__link[data-md-state=blur] {
     color: rgba(0, 0, 0, .54);
 }
@@ -2246,6 +2252,19 @@ html .md-nav__link[for=__toc]:after {
     color: inherit;
     content: "\E8DE"}
 html .md-nav__link[for=__toc]+.md-nav__link {
+    display: none;
+}
+html .md-nav__link[type=toc] {
+    display: block;
+    padding-right: 4.8rem;
+}
+html .md-nav__link[type=toc]:after {
+    color: inherit;
+    content: "\E8DE"}
+html .md-nav__link[type=toc]+.md-nav__link {
+    display: none;
+}
+html .md-nav__link[type=link]+.md-nav__link {
     display: none;
 }
 html .md-nav__link[for=__toc]~.md-nav {
