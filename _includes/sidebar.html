@@ -15,7 +15,7 @@
             <a class="md-nav__link md-nav__link--active" href="{{ site.baseurl }}/" title="Home">Home</a>
           </li>
           {% for section in site.data.toc %}
-          <li class="md-nav__item md-nav__item--active">
+          <li class="md-nav__item">
             
             {% if section.children %}
             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc-{{ section.title | slugify }}" type="checkbox"> 
@@ -23,6 +23,8 @@
                   
 
             <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
+              <label class="md-nav__title" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
+              </br>
               <ul class="md-nav__list" data-md-scrollfix="">
                 {% for child in section.children %}
                 <li class="md-nav__item">
@@ -73,13 +75,11 @@
 <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
   <div class="md-sidebar__scrollwrap">
     <div class="md-sidebar__inner">
-      <nav class="md-nav md-nav--secondary">
+      <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
         <label class="md-nav__title" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
-        <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
-          <ul id="nav-toc" class="md-nav__list" data-md-scrollfix="">
-            <!-- toc will be appended here!-->
-          </ul>
-        </nav>
+        <ul id="nav-toc" class="md-nav__list" data-md-scrollfix="">
+          <!-- toc will be appended here!-->
+        </ul>
       </nav>
     </div>
   </div>
