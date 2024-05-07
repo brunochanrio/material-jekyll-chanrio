@@ -24,7 +24,6 @@
 
             <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
               <label class="md-nav__title" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
-              </br>
               <ul class="md-nav__list" data-md-scrollfix="">
                 {% for child in section.children %}
                 <li class="md-nav__item">
