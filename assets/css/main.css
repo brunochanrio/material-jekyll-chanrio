@@ -935,8 +935,11 @@ html .md-footer-meta.md-typeset a:focus, html .md-footer-meta.md-typeset a:hover
 html .md-nav__link[type=toc], html .md-nav__link[type=toc]+.md-nav__link:after, html .md-nav__link[type=toc]~.md-nav {
     display: block;
 }
-html .md-nav__link[type=toc]:after, html .md-nav__link[type=toc]+.md-nav__link:after, html .md-nav__link[type=toc]~.md-nav {
+
+html .md-nav__link[type=toc], html .md-nav__link[type=toc]+.md-nav__link:after {
     padding-right: 4.8rem;
+}
+html .md-nav__link[type=toc]:after, html .md-nav__link[type=toc]+.md-nav__link:after, html .md-nav__link[type=toc]~.md-nav {
     color: inherit;
     content: "\E8DE"}
 }
