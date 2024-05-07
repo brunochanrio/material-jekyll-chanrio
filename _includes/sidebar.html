@@ -44,7 +44,7 @@
           </li>
 
 <!-- This navigation is completely for mobile -->
-          {% for section in site.data.toc %}<li class="md-nav__item mobile-nav" style="display:none">
+          {% for section in site.data.toc %}<li class="md-nav__item mobile-nav">
             <a class="md-nav__link" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}">{{ section.title }}</a>
           </li>{% endfor %}
           
