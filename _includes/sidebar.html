@@ -15,11 +15,11 @@
             <a class="md-nav__link md-nav__link--active" href="{{ site.baseurl }}/" title="Home">Home</a>
           </li>
           {% for section in site.data.toc %}
-          <li class="md-nav__item md-nav__item--active mobile-nav">
+          <li class="md-nav__item md-nav__item--active">
             
             {% if section.children %}
             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc-{{ section.title | slugify }}" type="checkbox"> 
-                <label class="md-nav__link md-nav__link--active" type="toc" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
+                <label class="md-nav__link" type="toc" for="__toc-{{ section.title | slugify }}">{{ section.title }}</label>
                   
 
             <nav class="md-nav md-nav--secondary" id="{{ section.title | slugify }}">
@@ -33,13 +33,17 @@
               </ul>
             </nav>
             {% else %}
-              <a class="md-nav__link md-nav__link--active" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}">{{ section.title }}</a>
+              <a class="md-nav__link" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}">{{ section.title }}</a>
             {% endif %}
           </li>{% endfor %}
 
           <!-- This navigation is completely for mobile -->
           {% for section in site.data.toc %}<li class="md-nav__item mobile-nav" style="display:none">
+            {% if section.children %}
             <a class="md-nav__link" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}">{{ section.title }}</a>
+            {% else %}
+            <a class="md-nav__link" href="{% if section.external_url %}{{ section.external_url }}{% else %}{{ site.baseurl }}/{{ section.url }}{% endif %}" title="{{ section.title }}" type="toc">{{ section.title }}</a>
+            {% endif %}
           </li>{% endfor %}
 
           <!-- This navigation is completely for non mobile -->
