@@ -192,7 +192,7 @@ body, input {
     color: rgba(0, 0, 0, .87);
     -webkit-font-feature-settings: "kern", "liga";
     font-feature-settings: "kern", "liga";
-    font-family: Shippori Mincho, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "Shippori Mincho", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 code, kbd, pre {
     color: rgba(0, 0, 0, .87);
