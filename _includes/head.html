@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
-  {% if page.socialcover %}<meta content="{{ site.url }}{{ site.baseurl }}/{{ page.cover }}" property="og:image"/>{% elsif site.cover %}<meta content="{{ site.url }}{{ site.baseurl }}/{{ site.socialcover }}" property="og:image"/>{% endif %}
+  <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" property="og:title" />
+  {% if page.description %}<meta content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" property="og:description" />{% elsif site.description %}<meta content="{{ site.description }}" property="og:description" />{% endif %}
+  {% if page.socialcover %}<meta content="{{ site.url }}{{ site.baseurl }}/{{ page.cover }}" property="og:image"/>{% elsif site.socialcover %}<meta content="{{ site.url }}{{ site.baseurl }}/{{ site.socialcover }}" property="og:image"/>{% endif %}
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}{% if site.keywords %}, {{ site.keywords }}{% endif %}">{% elsif site.keywords %}<meta name="keywords" content="{{ site.keywords }}">{% endif %}
    
   <meta name="theme-color" content="{% if site.head-theme-color %}{{ site.head-theme-color }}{% else %}{{ site.themeColor }}{% endif %}">    
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,3 +35,5 @@
   <link rel="shortcut icon" href="{{ site.baseurl }}/assets/img/favicon.png"> 
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/palette.css">
+
+  {% include custom_headers %}
